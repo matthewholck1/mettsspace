@@ -59,7 +59,7 @@ else:
     start_date = datetime(2025, 8, 24, 0, 0 ,0)
     now = datetime.now() - timedelta(hours=10)
     search_date =  now + timedelta(days=cursor)
-    time_left = end_date - now
+    time_left = end_date - datetime.now()
     days = time_left.days
 
     # Days until max_date
