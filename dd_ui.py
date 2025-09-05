@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import base64
 from io import StringIO
@@ -57,7 +57,7 @@ else:
     # Target datetime
     end_date = datetime(2025, 12, 6, 0, 0, 0)
     start_date = datetime(2025, 8, 24, 0, 0 ,0)
-    now = datetime.now() 
+    now = datetime.now() - timedelta(hours=10)
     search_date =  now + timedelta(days=cursor)
     time_left = end_date - now
     days = time_left.days
@@ -96,7 +96,7 @@ else:
         <div style="border:2px solid #E6E6FA; padding:10px; margin:5px;">
             <h3><u>{search_date.strftime('%A, %B %d %Y')}</u></h3>
             {text}
-            <br><img src="{img_src}" width="200" onerror="this.style.display='none'; this.parentElement.innerHTML='No image';">
+            <br><img src="{img_src}" width="200" onerror="this.style.display='none'; this.parentElement.innerHTML='';">
             <br>&nbsp;
         </div>
         <br>
